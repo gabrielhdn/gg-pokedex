@@ -3,7 +3,7 @@ export interface GenerationRange {
   lastPokemonId: number;
 }
 
-export interface Generations {
+export interface IGenerations {
   first: GenerationRange;
   second: GenerationRange;
   third: GenerationRange;
@@ -14,7 +14,7 @@ export interface Generations {
   eighth: GenerationRange;
 }
 
-export const generations: Generations = {
+export const generations: IGenerations = {
   first: {
     firstPokemonId: 1,
     lastPokemonId: 151,

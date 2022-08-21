@@ -1,12 +1,14 @@
 import axios from 'axios';
-import { IGeneration } from '../interfaces/Generation';
+import { generations } from './utils/generations';
+import { Generations } from './utils/generations';
 
 class PokemonService {
   baseUrl: string = 'https://pokeapi.co/api/v2';
 
-  public async getByGeneration(generation: number) {
+  public async getByGeneration(generation: keyof Generations) {
+    const { lastPokemonId, firstPokemonId} = generations[generation];
     return axios
-      .get(`${this.baseUrl}/generation/${generation}/`)
+      .get(`${this.baseUrl}/pokemon?limit=${lastPokemonId}&offset=${firstPokemonId - 1}/`)
       .then(({ data }) => data);
   }
 

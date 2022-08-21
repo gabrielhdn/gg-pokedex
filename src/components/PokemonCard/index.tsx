@@ -12,3 +12,5 @@ const PokemonCard: FC<IPokemonCard> = ({ name }) => {
     </div>
   );
 };
+
+export default PokemonCard;

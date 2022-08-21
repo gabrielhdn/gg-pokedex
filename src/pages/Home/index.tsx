@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { PokemonSpecies } from '../../interfaces/Generation';
 import PokemonsService from '../../services/PokemonsService';
+import PokemonCard from '../../components/PokemonCard';
 
 const Home: FC = () => {
   const [pokemons, setPokemons] = useState<PokemonSpecies[]>([]);
@@ -16,7 +17,13 @@ const Home: FC = () => {
     fetchGeneration();
   }, []);
 
-  return <h1>Página Home</h1>;
+  return (
+    <>
+      {pokemons.map(({ name }) => {
+        return <PokemonCard name={name} />;
+      })}
+    </>
+  );
 };
 
 export default Home;

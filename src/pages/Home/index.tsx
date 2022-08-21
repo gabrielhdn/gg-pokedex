@@ -17,7 +17,13 @@ const Home: FC = () => {
     fetchGeneration();
   }, []);
 
-  return <PokemonCard name={pokemons[0]?.name} />;
+  return (
+    <>
+      {pokemons.map(({ name }) => (
+        <PokemonCard name={name} />
+      ))}
+    </>
+  );
 };
 
 export default Home;

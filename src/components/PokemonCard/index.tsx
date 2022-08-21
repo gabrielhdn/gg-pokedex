@@ -1,5 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import PokemonsService from '../../services/PokemonsService';
+import capitalize from '../../utils/capitalize';
+import * as S from './style';
 
 interface IPokemonCard {
   name: string;
@@ -9,10 +11,10 @@ const PokemonCard: FC<IPokemonCard> = ({ name }) => {
   const [pokemonData, setPokemonData] = useState<any>();
 
   async function fetchPokemonData(pokemonName: string) {
-    const pokemonData = await PokemonsService.getByName(pokemonName).then(
+    const pokemon = await PokemonsService.getByName(pokemonName).then(
       (data) => data,
     );
-    setPokemonData(pokemonData);
+    setPokemonData(pokemon);
   }
 
   useEffect(() => {
@@ -20,9 +22,11 @@ const PokemonCard: FC<IPokemonCard> = ({ name }) => {
   }, [name]);
 
   return (
-    <div>
+    <S.CardContainer>
       <img src={pokemonData?.sprites?.front_default} alt={name} />
-    </div>
+      <p>{`Nº ${pokemonData?.id}`}</p>
+      <S.PokemonName>{capitalize(pokemonData?.name)}</S.PokemonName>
+    </S.CardContainer>
   );
 };
 

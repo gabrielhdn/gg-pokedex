@@ -18,6 +18,6 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
-    'react/require-default-props', 'off'
+    'react/require-default-props': 'off',
   },
 };

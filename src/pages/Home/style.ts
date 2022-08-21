@@ -7,5 +7,4 @@ export const HomeContainer = styled.main`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background: ${({ color }) => color};
 `;

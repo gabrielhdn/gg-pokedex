@@ -22,6 +22,7 @@ const Home: FC = () => {
       {pokemons.map(({ name }) => (
         <PokemonCard name={name} />
       ))}
+      <h1>AISHDIUASHDIUAHSDH</h1>
     </S.HomeContainer>
   );
 };

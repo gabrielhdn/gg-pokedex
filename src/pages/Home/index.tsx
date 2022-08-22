@@ -8,7 +8,7 @@ const Home: FC = () => {
 
   async function fetchGeneration() {
     const pokemonsResponse = await PokemonsService.getByGeneration(
-      'second',
+      'eighth',
     ).then((data) => data.results);
     setPokemons(pokemonsResponse);
   }

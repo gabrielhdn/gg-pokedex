@@ -7,9 +7,9 @@ interface ICardContainer {
 
 export const CardContainer = styled.div<ICardContainer>`
   margin: 10px;
-  padding-bottom: 6px;
-  height: 12em;
-  width: 10em;
+  padding: 0 4px 6px 4px;
+  height: 14em;
+  width: 12em;
   ${({ type }) => type?.length === 1 && css`
     background-color: ${PokemonTypeColors[type[0] as keyof IPokemonTypeColors]};
   `};
@@ -23,7 +23,6 @@ export const CardContainer = styled.div<ICardContainer>`
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  opacity: 0.8;
   transition: all 0.3s;
   cursor: pointer;
 
@@ -35,6 +34,7 @@ export const CardContainer = styled.div<ICardContainer>`
 
   p {
     color: #fff;
+    font-family: ${({ theme }) => theme.fontFamilies.mono} !important;
   }
 `;
 
@@ -42,4 +42,7 @@ export const PokemonName = styled.p`
   color: #fff;
   font-weight: 600;
   font-size: 1.2rem;
+  font-family: ${({ theme }) => theme.fontFamilies.mono} !important;
+  text-align: center;
+  margin-top: 5px;
 `;

@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import PokemonsService from '../../services/PokemonsService';
 import capitalize from '../../utils/capitalize';
 import getPokemonTypes from '../../utils/getPokemonTypes';
+import defaultPokemonImg from '../../assets/images/DefaultPokemon.png';
 import * as S from './style';
 
 interface IPokemonCard {
@@ -24,7 +25,7 @@ const PokemonCard: FC<IPokemonCard> = ({ name }) => {
 
   return (
     <S.CardContainer type={getPokemonTypes(pokemonData?.types)}>
-      <img src={pokemonData?.sprites?.front_default} alt={name} />
+      <img src={pokemonData?.sprites?.front_default ?? defaultPokemonImg} alt={name} />
       <p>{`Nº ${pokemonData?.id}`}</p>
       <S.PokemonName>{capitalize(pokemonData?.name)}</S.PokemonName>
     </S.CardContainer>

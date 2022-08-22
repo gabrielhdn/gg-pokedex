@@ -7,7 +7,7 @@ class PokemonService {
   public async getByGeneration(generation: keyof IGenerations) {
     const { lastPokemonId, firstPokemonId } = generations[generation];
     return axios
-      .get(`${this.baseUrl}/pokemon?limit=${lastPokemonId}&offset=${firstPokemonId - 1}/`)
+      .get(`${this.baseUrl}/pokemon?limit=${lastPokemonId - firstPokemonId + 1}&offset=${firstPokemonId - 1}/`)
       .then(({ data }) => data);
   }
 

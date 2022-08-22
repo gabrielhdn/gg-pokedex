@@ -1,11 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: ${({ theme }) => theme.fontFamily};
+    font-family: ${({ theme }) => theme.fontFamilies.main};
   }
 `;
+
+export default GlobalStyles;

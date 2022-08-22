@@ -1,5 +1,8 @@
 export interface ITheme {
-  fontFamily: string;
+  fontFamilies: {
+    main: string
+    mono: string
+  };
   colors: {
     light: {
       main: string;
@@ -13,7 +16,10 @@ export interface ITheme {
 }
 
 export const defaultThemes: ITheme = {
-  fontFamily: 'Arial, sans-serif',
+  fontFamilies: {
+    main: 'Roboto, sans-serif',
+    mono: 'Roboto Mono, sans-serif',
+  },
   colors: {
     light: {
       main: '#fff',

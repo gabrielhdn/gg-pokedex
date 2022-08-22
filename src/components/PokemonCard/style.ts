@@ -1,8 +1,11 @@
 import styled, { css } from 'styled-components';
-import { PokemonTypeColors, IPokemonTypeColors } from '../../styles/pokemonTypeColors';
+import {
+  PokemonTypeColors,
+  IPokemonTypeColors,
+} from '../../styles/pokemonTypeColors';
 
 interface ICardContainer {
-  type: string[]
+  type: string[];
 }
 
 export const CardContainer = styled.div<ICardContainer>`
@@ -11,13 +14,15 @@ export const CardContainer = styled.div<ICardContainer>`
   height: 14em;
   width: 12em;
   ${({ type }) => type?.length === 1 && css`
-    background-color: ${PokemonTypeColors[type[0] as keyof IPokemonTypeColors]};
-  `};
+      background-color: ${PokemonTypeColors[type[0] as keyof IPokemonTypeColors]};
+    `};
   ${({ type }) => type?.length > 1 && css`
-  background: linear-gradient(45deg,
-    ${PokemonTypeColors[type[0] as keyof IPokemonTypeColors]} 30%,
-    ${PokemonTypeColors[type[1] as keyof IPokemonTypeColors]} 70%);
-  `};
+      background: linear-gradient(
+        45deg,
+        ${PokemonTypeColors[type[0] as keyof IPokemonTypeColors]} 30%,
+        ${PokemonTypeColors[type[1] as keyof IPokemonTypeColors]} 70%
+      );
+    `};
   border-radius: 10px;
   display: flex;
   justify-content: space-evenly;
@@ -28,7 +33,7 @@ export const CardContainer = styled.div<ICardContainer>`
 
   &:hover {
     opacity: 1;
-    box-shadow: 5px 5px 8px #B4AEB9;
+    box-shadow: 5px 5px 8px #b4aeb9;
     transform: translateY(-4px);
   }
 

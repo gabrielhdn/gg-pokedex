@@ -7,5 +7,5 @@ interface ITypes {
 }
 
 export default function getPokemonTypes(typesArray: ITypes[]) {
-  return typesArray.map(({ type }) => type.name);
+  return typesArray?.map(({ type }) => type.name);
 }

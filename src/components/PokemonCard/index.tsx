@@ -22,7 +22,7 @@ const PokemonCard: FC<IPokemonCard> = ({ name }) => {
   }, [name]);
 
   return (
-    <S.CardContainer>
+    <S.CardContainer type={pokemonData?.types[0]?.type?.name}>
       <img src={pokemonData?.sprites?.front_default} alt={name} />
       <p>{`Nº ${pokemonData?.id}`}</p>
       <S.PokemonName>{capitalize(pokemonData?.name)}</S.PokemonName>

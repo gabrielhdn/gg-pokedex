@@ -8,7 +8,7 @@ const Home: FC = () => {
 
   async function fetchGeneration() {
     const pokemonsResponse = await PokemonsService.getByGeneration(
-      'first',
+      'second',
     ).then((data) => data.results);
     setPokemons(pokemonsResponse);
   }
@@ -20,9 +20,8 @@ const Home: FC = () => {
   return (
     <S.HomeContainer>
       {pokemons.map(({ name }) => (
-        <PokemonCard name={name} />
+        <PokemonCard name={name} key={name} />
       ))}
-      <h1>AISHDIUASHDIUAHSDH</h1>
     </S.HomeContainer>
   );
 };

@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const MenuOptionButton = styled.button`
   cursor: pointer;
-  width: 11.4rem;
+  width: 9.7rem;
   height: 2.5rem;
   font-size: 1rem;
   font-family: ${({ theme }) => theme.fontFamilies.mono};

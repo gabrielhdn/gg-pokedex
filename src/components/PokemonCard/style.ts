@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { lighten } from 'polished';
 import {
   PokemonTypeColors,
   IPokemonTypeColors,
@@ -33,7 +34,9 @@ export const CardContainer = styled.div<ICardContainer>`
 
   &:hover {
     opacity: 1;
-    box-shadow: 5px 5px 8px #b4aeb9;
+    ${({ type }) => type && css`
+    box-shadow: 5px 5px 8px ${lighten(0.15, PokemonTypeColors[type[0] as keyof IPokemonTypeColors])}
+    `};
     transform: translateY(-4px);
   }
 

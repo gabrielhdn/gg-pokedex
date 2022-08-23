@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const PokedexContainer = styled.section`
-  background-color: #F6F5FC;
+  background-color: #f6f5fc;
   width: 80%;
   height: 85%;
   display: flex;
@@ -10,9 +10,10 @@ export const PokedexContainer = styled.section`
 
 export const PokedexMenu = styled.div`
   width: 30%;
-  background-color: #FF6961;
+  background-color: #ff6961;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
   border-right: 1px solid black;
 
@@ -43,6 +44,6 @@ export const PokedexDisplay = styled.div`
 
   ::-webkit-scrollbar-thumb {
     /* border-radius: 4px; */
-    background-color: #FF6961;
+    background-color: #ff6961;
   }
 `;

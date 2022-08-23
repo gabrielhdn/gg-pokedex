@@ -3,6 +3,7 @@ import PokemonCard from '../../components/PokemonCard';
 import * as S from './style';
 import Logo from '../../assets/images/pokedex-logo.svg';
 import PokemonContext from '../../contexts/Pokemon/PokemonContext';
+import GenerationsMenu from '../GenerationsMenu';
 
 const Pokedex: FC = () => {
   const { pokemons } = useContext(PokemonContext);
@@ -11,6 +12,7 @@ const Pokedex: FC = () => {
     <S.PokedexContainer>
       <S.PokedexMenu>
         <img src={Logo} alt="Pokedex logo" />
+        <GenerationsMenu />
       </S.PokedexMenu>
       <S.PokedexDisplay>
         {pokemons?.map(({ name }) => (

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
-import dayBackground from '../../assets/images/b.png';
+import dayBackground from '../../assets/images/a.jpg';
 
 export const HomeContainer = styled.main`
   background: url(${dayBackground});

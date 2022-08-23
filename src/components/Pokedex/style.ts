@@ -10,16 +10,17 @@ export const PokedexContainer = styled.section`
 
 export const PokedexMenu = styled.div`
   width: 30%;
+  height: 100%;
   background-color: #ff6961;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   padding: 10px;
   border-right: 1px solid black;
 
   img {
     width: 13em;
-    align-self: flex-start;
     margin-top: 10px;
   }
 `;

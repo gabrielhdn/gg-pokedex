@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
 import PokemonCard from '../../components/PokemonCard';
 import * as S from './style';
-import Logo from '../../assets/images/Logo.svg';
+import Logo from '../../assets/images/pokedex-logo.svg';
 import PokemonContext from '../../contexts/Pokemon/PokemonContext';
 
 const Pokedex: FC = () => {

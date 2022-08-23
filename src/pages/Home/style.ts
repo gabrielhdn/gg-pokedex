@@ -1,9 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
-import dayBackground from '../../assets/images/a.jpg';
+import nightBackground from '../../assets/images/background-dark.jpg';
 
 export const HomeContainer = styled.main`
-  background: url(${dayBackground});
+  background: url(${nightBackground});
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

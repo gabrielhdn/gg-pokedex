@@ -1,14 +1,17 @@
 import { ThemeProvider } from 'styled-components';
+import PokemonProvider from '../../contexts/Pokemon/PokemonProvider';
 import Home from '../../pages/Home';
 import GlobalStyles from '../../styles/global';
 import { defaultThemes } from '../../styles/default';
 
 function App() {
   return (
-    <ThemeProvider theme={defaultThemes}>
-      <GlobalStyles />
-      <Home />
-    </ThemeProvider>
+    <PokemonProvider>
+      <ThemeProvider theme={defaultThemes}>
+        <GlobalStyles />
+        <Home />
+      </ThemeProvider>
+    </PokemonProvider>
   );
 }
 

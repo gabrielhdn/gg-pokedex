@@ -5,7 +5,7 @@ interface IMenuOption {
 }
 
 export const Container = styled.div`
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -37,5 +37,3 @@ export const MenuOptionButton = styled.button<IMenuOption>`
     color: #fff;
   }
 `;
-
-export const TextInput = styled.input``;

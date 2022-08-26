@@ -1,5 +1,5 @@
 import {
-  ChangeEvent, FC, useContext,
+  FC, useContext,
 } from 'react';
 import * as S from './style';
 import PokemonContext from '../../contexts/Pokemon/PokemonContext';
@@ -9,8 +9,6 @@ const GenerationsMenu: FC = () => {
   const {
     handleGenerationSwitch,
     selectedGeneration,
-    pokemonNameFilter,
-    setPokemonNameFilter,
   } = useContext(PokemonContext);
 
   return (
@@ -24,11 +22,6 @@ const GenerationsMenu: FC = () => {
           {`Generation ${option.title}`}
         </S.MenuOptionButton>
       ))}
-      <S.TextInput
-        type="text"
-        value={pokemonNameFilter}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setPokemonNameFilter(e.target.value)}
-      />
     </S.Container>
   );
 };

@@ -37,3 +37,5 @@ export const MenuOptionButton = styled.button<IMenuOption>`
     color: #fff;
   }
 `;
+
+export const TextInput = styled.input``;

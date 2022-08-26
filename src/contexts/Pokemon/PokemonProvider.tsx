@@ -12,6 +12,7 @@ interface IProps {
 const PokemonProvider: FC<IProps> = ({ children }) => {
   const [pokemons, setPokemons] = useState<any[]>([]);
   const [selectedGeneration, setSelectedGeneration] = useState<keyof IGenerations>('first');
+  const [pokemonNameFilter, setPokemonNameFilter] = useState<string>('');
 
   async function fetchGeneration() {
     const pokemonsResponse = await PokemonsService.getByGeneration(selectedGeneration)
@@ -31,7 +32,15 @@ const PokemonProvider: FC<IProps> = ({ children }) => {
     pokemons,
     selectedGeneration,
     handleGenerationSwitch,
-  }), [pokemons, selectedGeneration, handleGenerationSwitch]);
+    pokemonNameFilter,
+    setPokemonNameFilter,
+  }), [
+    pokemons,
+    selectedGeneration,
+    handleGenerationSwitch,
+    pokemonNameFilter,
+    setPokemonNameFilter,
+  ]);
 
   return (
     <PokemonContext.Provider value={providerValue}>

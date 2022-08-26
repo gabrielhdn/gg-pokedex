@@ -16,6 +16,12 @@ class PokemonService {
       .get(`${this.baseUrl}/pokemon/${name}`)
       .then(({ data }) => data);
   }
+
+  public async getTypes() {
+    return axios
+      .get(`${this.baseUrl}/type`)
+      .then(({ data }) => data.results);
+  }
 }
 
 export default new PokemonService();

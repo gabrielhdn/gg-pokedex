@@ -19,6 +19,7 @@ const GenerationsMenu: FC = () => {
         <S.MenuOptionButton
           onClick={() => handleGenerationSwitch(option.value)}
           isSelected={selectedGeneration === option.value}
+          key={option.value}
         >
           {`Generation ${option.title}`}
         </S.MenuOptionButton>

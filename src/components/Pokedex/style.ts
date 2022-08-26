@@ -14,7 +14,7 @@ export const PokedexMenu = styled.div`
   background-color: #ff6961;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   padding: 10px;
   border-right: 1px solid black;
@@ -44,7 +44,16 @@ export const PokedexDisplay = styled.div`
   }
 
   ::-webkit-scrollbar-thumb {
-    /* border-radius: 4px; */
     background-color: #ff6961;
   }
 `;
+
+export const TextInput = styled.input`
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 4px;
+`;
+
+export const SelectInput = styled.select``;

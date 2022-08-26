@@ -55,3 +55,5 @@ export const TextInput = styled.input`
   font-size: 1rem;
   padding: 4px;
 `;
+
+export const SelectInput = styled.select``;

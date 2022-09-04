@@ -25,7 +25,7 @@ const PokemonCard: FC<IPokemonCard> = ({ name }) => {
     fetchPokemonData(name);
   }, [name]);
 
-  if (pokemonTypeFilter !== 'all' && !getPokemonTypes(pokemonData?.types).includes(pokemonTypeFilter)) {
+  if (pokemonTypeFilter !== 'all' && !getPokemonTypes(pokemonData?.types)?.includes(pokemonTypeFilter)) {
     return null;
   }
 

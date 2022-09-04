@@ -33,10 +33,9 @@ const Pokedex: FC = () => {
     fetchTypes();
   }, []);
 
-  const filteredPokemons = useMemo(
-    () => pokemons.filter((pokemon) => pokemon.name.includes(pokemonNameFilter.toLowerCase())),
-    [pokemonNameFilter],
-  );
+  const filteredPokemons = useMemo(() => (
+    pokemons.filter((pokemon) => pokemon.name.includes(pokemonNameFilter.toLowerCase()))
+  ), [pokemonNameFilter]);
 
   return (
     <S.PokedexContainer>
@@ -61,9 +60,7 @@ const Pokedex: FC = () => {
       </S.PokedexMenu>
       <S.PokedexDisplay>
         {pokemonNameFilter
-          ? filteredPokemons?.map(({ name }) => (
-            <PokemonCard name={name} key={name} />
-          ))
+          ? filteredPokemons?.map(({ name }) => (<PokemonCard name={name} key={name} />))
           : pokemons?.map(({ name }) => <PokemonCard name={name} key={name} />)}
       </S.PokedexDisplay>
     </S.PokedexContainer>

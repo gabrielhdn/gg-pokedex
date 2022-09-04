@@ -4,6 +4,7 @@ import capitalize from '../../utils/capitalize';
 import getPokemonTypes from '../../utils/getPokemonTypes';
 import defaultPokemonImg from '../../assets/images/default-pokemon.png';
 import * as S from './style';
+import { usePokemons } from '../../contexts/Pokemons';
 
 interface IPokemonCard {
   name: string;
@@ -11,6 +12,7 @@ interface IPokemonCard {
 
 const PokemonCard: FC<IPokemonCard> = ({ name }) => {
   const [pokemonData, setPokemonData] = useState<any>();
+  const { pokemonTypeFilter } = usePokemons();
 
   async function fetchPokemonData(pokemonName: string) {
     const pokemon = await PokemonsService.getByName(pokemonName).then(
@@ -22,6 +24,10 @@ const PokemonCard: FC<IPokemonCard> = ({ name }) => {
   useEffect(() => {
     fetchPokemonData(name);
   }, [name]);
+
+  if (pokemonTypeFilter !== 'all' && !getPokemonTypes(pokemonData?.types).includes(pokemonTypeFilter)) {
+    return null;
+  }
 
   return (
     <S.CardContainer type={getPokemonTypes(pokemonData?.types)}>

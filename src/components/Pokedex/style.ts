@@ -54,6 +54,22 @@ export const TextInput = styled.input`
   outline: none;
   font-size: 1rem;
   padding: 4px;
+  width: 14rem;
+  font-family: ${({ theme }) => theme.fontFamilies.mono};
 `;
 
-export const SelectInput = styled.select``;
+export const SelectInput = styled.select`
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 4px;
+  width: 14rem;
+  font-family: ${({ theme }) => theme.fontFamilies.mono};
+  padding-left: 1rem;
+
+  option {
+    font-family: ${({ theme }) => theme.fontFamilies.mono};
+    padding-left: 1rem;
+  }
+`;

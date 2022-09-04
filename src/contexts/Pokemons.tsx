@@ -1,15 +1,27 @@
+/* eslint-disable no-unused-vars */
 import {
-  useState, useCallback, ReactNode, FC, useEffect, useMemo,
+  useState, useCallback, ReactNode, FC, useEffect, useMemo, useContext, createContext,
 } from 'react';
-import PokemonsService from '../../services/PokemonsService';
-import { IGenerations } from '../../services/utils/generations';
-import PokemonContext from './PokemonContext';
+import PokemonsService from '../services/PokemonsService';
+import { IGenerations } from '../services/utils/generations';
 
-interface IProps {
+interface IPokemonContext {
+  pokemons: any[];
+  selectedGeneration: string;
+  handleGenerationSwitch: (generation: string) => void;
+  pokemonNameFilter: string;
+  setPokemonNameFilter: (pokemonName: string) => void;
+  pokemonTypeFilter: string;
+  setPokemonTypeFilter: (pokemonType: string) => void;
+}
+
+interface IPokemonProvider {
   children?: ReactNode;
 }
 
-const PokemonProvider: FC<IProps> = ({ children }) => {
+const PokemonContext = createContext({} as IPokemonContext);
+
+const PokemonProvider: FC<IPokemonProvider> = ({ children }) => {
   const [pokemons, setPokemons] = useState<any[]>([]);
   const [selectedGeneration, setSelectedGeneration] = useState<keyof IGenerations>('first');
   const [pokemonNameFilter, setPokemonNameFilter] = useState<string>('');
@@ -54,4 +66,9 @@ const PokemonProvider: FC<IProps> = ({ children }) => {
   );
 };
 
-export default PokemonProvider;
+const usePokemons = () => useContext(PokemonContext);
+
+export {
+  usePokemons,
+  PokemonProvider,
+};

@@ -1,16 +1,16 @@
 import {
-  FC, useContext, useMemo, ChangeEvent, useState, useEffect,
+  FC, useMemo, ChangeEvent, useState, useEffect,
 } from 'react';
 import PokemonCard from '../../components/PokemonCard';
 import * as S from './style';
 import Logo from '../../assets/images/pokedex-logo.svg';
-import PokemonContext from '../../contexts/Pokemon/PokemonContext';
 import GenerationsMenu from '../GenerationsMenu';
 import PokemonsService from '../../services/PokemonsService';
+import { usePokemons } from '../../contexts/Pokemons';
 
 interface IPokemonTypes {
-  name: string
-  url: string
+  name: string;
+  url: string;
 }
 
 const Pokedex: FC = () => {
@@ -20,7 +20,8 @@ const Pokedex: FC = () => {
     setPokemonNameFilter,
     pokemonTypeFilter,
     setPokemonTypeFilter,
-  } = useContext(PokemonContext);
+  } = usePokemons();
+
   const [pokemonTypes, setPokemonTypes] = useState<string[]>([]);
 
   const fetchTypes = async () => {
@@ -32,9 +33,10 @@ const Pokedex: FC = () => {
     fetchTypes();
   }, []);
 
-  const filteredPokemons = useMemo(() => (
-    pokemons.filter((pokemon) => pokemon.name.includes(pokemonNameFilter.toLowerCase()))
-  ), [pokemonNameFilter]);
+  const filteredPokemons = useMemo(
+    () => pokemons.filter((pokemon) => pokemon.name.includes(pokemonNameFilter.toLowerCase())),
+    [pokemonNameFilter],
+  );
 
   return (
     <S.PokedexContainer>
@@ -51,10 +53,7 @@ const Pokedex: FC = () => {
           onChange={(e: ChangeEvent<HTMLSelectElement>) => setPokemonTypeFilter(e.target.value)}
         >
           {['all', ...pokemonTypes].map((option) => (
-            <option
-              key={option}
-              value={option}
-            >
+            <option key={option} value={option}>
               {option}
             </option>
           ))}
@@ -65,9 +64,7 @@ const Pokedex: FC = () => {
           ? filteredPokemons?.map(({ name }) => (
             <PokemonCard name={name} key={name} />
           ))
-          : pokemons?.map(({ name }) => (
-            <PokemonCard name={name} key={name} />
-          )) }
+          : pokemons?.map(({ name }) => <PokemonCard name={name} key={name} />)}
       </S.PokedexDisplay>
     </S.PokedexContainer>
   );

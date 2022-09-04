@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components';
-import PokemonProvider from '../../contexts/Pokemon/PokemonProvider';
+import { PokemonProvider } from '../../contexts/Pokemons';
 import Home from '../../pages/Home';
 import GlobalStyles from '../../styles/global';
 import { defaultThemes } from '../../styles/default';

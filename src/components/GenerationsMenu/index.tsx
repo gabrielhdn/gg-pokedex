@@ -1,15 +1,10 @@
-import {
-  FC, useContext,
-} from 'react';
+import { FC } from 'react';
 import * as S from './style';
-import PokemonContext from '../../contexts/Pokemon/PokemonContext';
 import { menuOptions } from './options';
+import { usePokemons } from '../../contexts/Pokemons';
 
 const GenerationsMenu: FC = () => {
-  const {
-    handleGenerationSwitch,
-    selectedGeneration,
-  } = useContext(PokemonContext);
+  const { handleGenerationSwitch, selectedGeneration } = usePokemons();
 
   return (
     <S.Container>

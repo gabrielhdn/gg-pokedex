@@ -26,7 +26,11 @@ const Pokedex: FC = () => {
 
   const fetchTypes = async () => {
     const types = await PokemonsService.getTypes();
-    setPokemonTypes(types.map((type: IPokemonTypes) => type.name));
+    setPokemonTypes(
+      types
+        .map((type: IPokemonTypes) => type.name)
+        .filter((name: string) => !['unknown', 'shadow'].includes(name)),
+    );
   };
 
   useEffect(() => {
